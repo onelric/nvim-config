@@ -15,6 +15,7 @@ return require('packer').startup(function()
     use 'nvim-telescope/telescope.nvim'
     use 'folke/trouble.nvim'
     use 'rcarriga/nvim-notify'
+    use 'rmagatti/goto-preview'
 
     use 'lewis6991/gitsigns.nvim'
     use 'windwp/nvim-autopairs'
@@ -38,7 +39,7 @@ return require('packer').startup(function()
     use 'hrsh7th/vim-vsnip'
 
     use 'norcalli/nvim-colorizer.lua'
-    use 'RRethy/vim-illuminate'
+    --use 'RRethy/vim-illuminate'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'RRethy/nvim-base16'
 

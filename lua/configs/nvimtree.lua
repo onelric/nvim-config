@@ -52,6 +52,7 @@ require('nvim-tree').setup({
     renderer = {
         highlight_git  = true,
         indent_markers = { enable = false },
+        indent_width   = 3,
         icons          = {
             show = {
                 file         = true,
@@ -59,6 +60,7 @@ require('nvim-tree').setup({
                 folder_arrow = true,
             },
             glyphs = icons,
+            git_placement = "after"
         }
     }
 })

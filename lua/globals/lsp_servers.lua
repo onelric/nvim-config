@@ -1,4 +1,5 @@
 return {
+    'pylsp',
     'jsonls',
     'rust_analyzer',
     'clangd',

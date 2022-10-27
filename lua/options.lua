@@ -5,7 +5,6 @@ local options = {
     showmode = false,
     showtabline = 2,
     ignorecase = true,
-    --smartcase = true,
     smartindent = true,
     swapfile = false,
     termguicolors = true,
@@ -18,7 +17,7 @@ local options = {
     cursorline = true,
     number = true,
     nu = true,
-    --relativenumber = true,
+    relativenumber = true,
     numberwidth = 4,
     wrap = false,
     scrolloff = 8,
@@ -31,14 +30,23 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+-- Supported languages for auto formatting
+local format_lang = { '*.cpp', '*.hpp', '*.c', '*.h', '*.lua', '*.rs', '*.py', '*.json', '*.md', '*.txt' }
+
 -- Replace vertical split char
 vim.cmd('set fillchars+=vert:▐')
 
 -- Map vim notifications to use the notify plugin
 vim.notify = require("notify")
 
--- Auto formatting
-vim.cmd 'autocmd BufWritePre * lua FORMAT_DOCUMENT()'
-
 -- Auto attach colorizer
-vim.cmd 'autocmd BufEnter * ColorizerAttachToBuffer'
+vim.api.nvim_create_autocmd("BufEnter", { command = 'ColorizerAttachToBuffer', pattern = "*" })
+
+-- Auto formatting
+vim.api.nvim_create_autocmd("BufWritePre", { command = 'lua FORMAT_DOCUMENT()', pattern = format_lang })
+
+-- Change relative numbers
+vim.api.nvim_create_autocmd("InsertEnter", { command = 'set norelativenumber', pattern = "*" })
+vim.api.nvim_create_autocmd("InsertLeave", { command = 'set relativenumber', pattern = "*" })
+vim.cmd("autocmd BufEnter * if &buftype ==# 'terminal' | stopinsert! | endif")
+vim.cmd('autocmd BufRead,BufNewFile * setlocal signcolumn=yes')

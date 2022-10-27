@@ -79,7 +79,8 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
         notif_data.notification = vim.notify(val.message and format_message(val.message) or "Complete", "info", {
             icon = "",
             replace = notif_data.notification,
-            timeout = 3000,
+            --timeout = 3000,
+            timeout = 2000,
         })
 
         notif_data.spinner = nil

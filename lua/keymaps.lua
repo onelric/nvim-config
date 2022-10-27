@@ -46,17 +46,29 @@ mapkey("n", "<leader>v", "vsp <CR>")
 mapkey("n", "<leader>c", "sp  <CR>")
 
 -- Closing and switching tabs
-mapkey("n", "<Tab>", "bnext            <CR>")
-mapkey("n", "<S-Tab>", "bprevious        <CR>")
-mapkey("n", "<S-w>", "lua CLOSE_TAB()  <CR>")
+mapkey("n", "<Tab>", "bnext           <CR>")
+mapkey("n", "<S-Tab>", "bprevious     <CR>")
+mapkey("n", "<S-w>", "lua CLOSE_TAB() <CR>")
 
--- Plugins
-mapkey("n", "<leader>ee", "NvimTreeToggle           <CR>")
-mapkey("n", "<leader>er", "NvimTreeRefresh          <CR>")
-mapkey("n", "<leader>f", "Telescope find_files     <CR>")
-mapkey("n", "<leader>o", "Telescope oldfiles       <CR>")
-mapkey("n", "<leader>tt", "ToggleTerm               <CR>")
-mapkey("n", "<leader>tr", "lua TOGGLE_TROUBLE()     <CR>")
+-- NvimTree
+mapkey("n", "<leader>ee", "NvimTreeToggle  <CR>")
+mapkey("n", "<leader>er", "NvimTreeRefresh <CR>")
+
+-- Telescope
+mapkey("n", "<leader>f", "Telescope find_files  <CR>")
+mapkey("n", "<leader>o", "Telescope oldfiles    <CR>")
+mapkey("n", "<leader>tf", "Telescope treesitter <CR>")
+
+-- Toggle trouble/term
+mapkey("n", "<leader>tt", "ToggleTerm           <CR>")
+mapkey("n", "<leader>tr", "lua TOGGLE_TROUBLE() <CR>")
+
+-- Goto preview
+mapkey('n', '<leader>gd', 'lua require("goto-preview").goto_preview_definition()      <CR>')
+mapkey('n', '<leader>gt', 'lua require("goto-preview").goto_preview_type_definition() <CR>')
+mapkey('n', '<leader>gi', 'lua require("goto-preview").goto_preview_implementation()  <CR>')
+mapkey('n', '<leader>gr', 'lua require("goto-preview").goto_preview_references()      <CR>')
+mapkey('n', '<leader>gq', 'lua require("goto-preview").close_all_win()                <CR>')
 
 mapkey("n", "<leader>fo", "lua vim.lsp.buf.formatting_sync() <CR>")
 

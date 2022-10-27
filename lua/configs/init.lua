@@ -1,5 +1,6 @@
 for _, v in ipairs({
     'notify',
+    'goto',
     'diagnostics',
     'lspinstaller',
     'alpha',

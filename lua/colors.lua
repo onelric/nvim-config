@@ -14,6 +14,13 @@ local function hl_italic(highlight)
     vim.cmd("hi " .. highlight .. " cterm=italic gui=italic")
 end
 
+-- Alpha
+hl("AlphaHeader", color.base08)
+hl("AlphaQuote", color.base04)
+hl("AlphaButtons", color.base04)
+hl('AlphaButtonShortcut', color.base08)
+hl_italic("AlphaButtonShortcut")
+
 -- Notify
 hl("NotifyERRORBorder", color.base08)
 hl("NotifyWARNBorder", color.base0A)
@@ -78,11 +85,14 @@ hl("NvimTreeGitRenamed", color.base0A)
 hl("NvimTreeGitExecFile", color.base0B)
 
 -- Telescope
-hl("TelescopeBorder", color.base07, color.base00)
-hl("TelescopePromptBorder", color.base07, color.base00)
-hl("TelescopePromptNormal", nil, color.base000)
-hl("TelescopePromptPrefix", color.base08, color.base01)
+hl("TelescopeBorder", color.base04, color.base00)
+hl("TelescopeTitle", color.base00, color.base05)
+hl("TelescopeResultsTitle", color.base00, color.base0C)
 hl("TelescopeSelection", nil, color.base01)
+hl("TelescopePromptBorder", color.base04, color.base00)
+hl("TelescopePromptPrefix", color.base0D, color.base00)
+hl("TelescopePromptNormal", nil, color.base00)
+hl("TelescopeNormal", nil, color.base00)
 
 -- Menues
 hl("Pmenu", nil, color.base00)

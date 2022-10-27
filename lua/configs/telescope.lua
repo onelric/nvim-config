@@ -1,6 +1,6 @@
 local actions = require 'telescope.actions'
 
-require('telescope').setup{
+local config = {
     defaults = {
         mappings = {
             n = {
@@ -11,8 +11,10 @@ require('telescope').setup{
     pickers = {
         find_files = { prompt_prefix = "   " },
         oldfiles = { prompt_prefix = "   " },
+        treesitter = { prompt_prefix = "   " }
     },
     extensions = {
     },
 }
 
+require('telescope').setup(config)

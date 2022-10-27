@@ -4,21 +4,24 @@ local on_attach = function(client)
     require('completion').on_attach(client)
 end
 
+-- ---- Ccls ----
 lsp.ccls.setup({
     autostart = false,
 })
 
+-- ---- Clangd ----
 lsp.clangd.setup {
     cmd = {
         "clangd",
         "--background-index",
         "--suggest-missing-includes",
-        "--include-directory=include/"
+        --"--include-directory=include/"
     },
     filetypes = { "c", "cc", "cpp", "c++", "objc", "objcpp" },
     root_dir = require('lspconfig').util.root_pattern("compile_commands.json", "compile_flags.txt", ".git");
 }
 
+-- ---- Rust Analyzer ----
 lsp.rust_analyzer.setup({
     settings = {
         ["rust-analyzer"] = {
@@ -36,6 +39,7 @@ lsp.rust_analyzer.setup({
     }
 })
 
+-- ---- Sumneko Lua ----
 local sumneko_binary_path = vim.fn.exepath('lua-language-server')
 local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ':h:h:h')
 
